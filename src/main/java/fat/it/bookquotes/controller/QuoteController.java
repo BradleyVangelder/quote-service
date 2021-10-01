@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
+@RequestMapping("/quote")
 public class QuoteController {
 
     @Autowired
@@ -29,7 +30,7 @@ public class QuoteController {
         return "Sales people are like actors";
     }
 
-    @GetMapping("/quote/{ISBN}")
+    @GetMapping("/{ISBN}")
     public List<Quote> getQuotesbyISBN(@PathVariable String ISBN){
         return quoteRepository.findQuoteByISBN(ISBN);
     }
@@ -39,7 +40,7 @@ public class QuoteController {
         return quoteRepository.findQuoteByCategory(category);
     }
 
-    @PostMapping("/quote")
+    @PostMapping("/")
     public Quote addQuote(@RequestBody Quote quote){
         quoteRepository.save(quote);
         return quote;
