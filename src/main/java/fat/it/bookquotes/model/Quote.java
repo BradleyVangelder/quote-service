@@ -1,8 +1,12 @@
 package fat.it.bookquotes.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "quotes")
 public class Quote {
+    @Id
+    private String id;
     private String quote;
     private String category;
     private String ISBN;
@@ -13,6 +17,14 @@ public class Quote {
         setISBN(ISBN);
         setCategory(category);
         setQuote(quote);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getQuote() {
