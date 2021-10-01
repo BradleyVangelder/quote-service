@@ -37,8 +37,8 @@ public class QuoteController {
         return quoteRepository.findQuoteByISBN(ISBN);
     }
 
-    @RequestMapping("/{category}")
-    public String getQuotesByCategory(){
-        return "Sales people are like actors";
+    @RequestMapping("/category/{category}")
+    public List<Quote> getQuotesByCategory(@PathVariable String category){
+        return quoteRepository.findQuoteByCategory(category);
     }
 }
