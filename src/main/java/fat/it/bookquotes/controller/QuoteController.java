@@ -21,8 +21,6 @@ public class QuoteController {
             quoteRepository.save(new Quote("Sales people are like actors","Finance", "687468434567"));
             quoteRepository.save(new Quote("Sales people are like actors", "Finance", "687468434567"));
         }
-
-        //System.out.println("Reviews test: " + quoteRepository.findReviewsByISBN("687468435454").size());
     }
 
     @GetMapping("/random")

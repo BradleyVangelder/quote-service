@@ -4,4 +4,16 @@ services:
   db:
     image: mongo
     ports:
-      - 27017-27019:27017-27019
+      - 27017:27017
+  quote-service:
+    container_name: quote-service
+    build:
+      context: quote-service
+      dockerfile: Dockerfile
+    image: quote-service
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      - MONGODB_HOST=db

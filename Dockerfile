@@ -1,5 +1,4 @@
-FROM openjdk:11-jdk
-EXPOSE 8080
-ARG JAR_FILE=target/bookquotes-1.0.0.jar
-ADD ${JAR_FILE} app.jar
+FROM openjdk:8
+ARG JAR_FILE=target/*.jar
+COPY target/quote-service-0.0.1.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
