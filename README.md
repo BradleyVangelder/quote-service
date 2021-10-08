@@ -4,14 +4,9 @@
 
 First of all we'll need to create a .jar file
 
-for mac users:
+install and test the application(mac users need to run this in bash):
 ```Java
-./mvnw clean install 
-```
-
-for Windows users:
-```Java
-mvnw clean install 
+mvn clean install 
 ```
 
 in the root of the project I've created a Dockefile that will be used in our docker compose. The docker compose will run the mongo database and the springboot rest API
