@@ -8,14 +8,12 @@ public class Quote {
     @Id
     private String id;
     private String quote;
-    private String category;
     private String ISBN;
 
     public Quote() {}
 
-    public Quote(String quote, String category, String ISBN) {
+    public Quote(String quote, String ISBN) {
         setISBN(ISBN);
-        setCategory(category);
         setQuote(quote);
     }
 
@@ -33,14 +31,6 @@ public class Quote {
 
     public void setQuote(String quote) {
         this.quote = quote;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public String getISBN() {

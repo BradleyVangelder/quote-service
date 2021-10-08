@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface QuoteRepository extends MongoRepository<Quote, String> {
     List<Quote> findQuoteByISBN(String ISBN);
-    List<Quote> findQuoteByCategory(String category);
+    Quote findQuoteById(String id);
 }

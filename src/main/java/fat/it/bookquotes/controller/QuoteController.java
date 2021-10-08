@@ -18,8 +18,8 @@ public class QuoteController {
     @PostConstruct
     public void fillDB(){
         if(quoteRepository.count()==0){
-            quoteRepository.save(new Quote("Sales people are like actors","Finance", "687468434567"));
-            quoteRepository.save(new Quote("Sales people are like actors", "Finance", "687468434567"));
+            quoteRepository.save(new Quote("Sales people are like actors", "687468434567"));
+            quoteRepository.save(new Quote("Sales people are like actors", "687468434567"));
         }
     }
 
@@ -33,14 +33,23 @@ public class QuoteController {
         return quoteRepository.findQuoteByISBN(ISBN);
     }
 
-    @GetMapping("/category/{category}")
-    public List<Quote> getQuotesByCategory(@PathVariable String category){
-        return quoteRepository.findQuoteByCategory(category);
-    }
-
-    @PostMapping("/")
+    @PostMapping()
     public Quote addQuote(@RequestBody Quote quote){
         quoteRepository.save(quote);
         return quote;
+    }
+
+    @PutMapping("/{id}")
+    public Quote edit(@PathVariable String id, @RequestBody Quote changedQuote){
+        Quote quote = quoteRepository.findQuoteById(id);
+        quote.setQuote(changedQuote.getQuote());
+        quote.setISBN(changedQuote.getISBN());
+        quoteRepository.save(quote);
+        return quote;
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable String id){
+        quoteRepository.deleteById(id);
     }
 }
