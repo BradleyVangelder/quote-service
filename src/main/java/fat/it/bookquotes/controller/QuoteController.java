@@ -18,8 +18,8 @@ public class QuoteController {
     @PostConstruct
     public void fillDB(){
         if(quoteRepository.count()==0){
-            quoteRepository.save(new Quote("Sales people are like actors", "687468434567"));
-            quoteRepository.save(new Quote("Sales people are like actors", "687468434567"));
+            quoteRepository.save(new Quote("Sales people are like actors", "687468434568"));
+            quoteRepository.save(new Quote("Sales people are like actors", "687468434568"));
         }
     }
 
