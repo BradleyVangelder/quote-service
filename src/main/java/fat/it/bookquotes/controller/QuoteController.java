@@ -19,7 +19,7 @@ public class QuoteController {
     public void fillDB(){
         if(quoteRepository.count()==0){
             quoteRepository.save(new Quote("Sales people are like actors", "687468434568"));
-            quoteRepository.save(new Quote("Sales people are like actors", "687468434568"));
+            quoteRepository.save(new Quote("Do it LEAN", "687468434578"));
         }
     }
 
