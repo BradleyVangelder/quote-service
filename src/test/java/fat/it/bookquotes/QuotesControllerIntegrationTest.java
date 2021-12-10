@@ -58,7 +58,7 @@ class QuoteControllerIntegrationTests {
         reviewList.add(quote1);
         reviewList.add(quote2);
 
-        mockMvc.perform(get("/quote/{isbn}", "6874684345634"))
+        mockMvc.perform(get("/quote/book/{isbn}", "6874684345634"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))
