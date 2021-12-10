@@ -33,6 +33,11 @@ public class QuoteController {
         return quoteRepository.findQuoteByISBN(ISBN);
     }
 
+    @GetMapping("/{id}")
+    public Quote getQuoteById(@PathVariable String id){
+        return quoteRepository.findQuoteById(id);
+    }
+
     @PostMapping()
     public Quote addQuote(@RequestBody Quote quote){
         quoteRepository.save(quote);
