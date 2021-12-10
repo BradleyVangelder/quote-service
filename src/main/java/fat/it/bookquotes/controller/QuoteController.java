@@ -28,7 +28,7 @@ public class QuoteController {
         return "Sales people are like actors";
     }
 
-    @GetMapping("/{ISBN}")
+    @GetMapping("/book/{ISBN}")
     public List<Quote> getQuotesbyISBN(@PathVariable String ISBN){
         return quoteRepository.findQuoteByISBN(ISBN);
     }
