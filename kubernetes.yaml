@@ -57,7 +57,7 @@ spec:
       containers:
         - name: quote-service-server
           image: bradleysan/quote-service:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8052 # The port that the container exposes
