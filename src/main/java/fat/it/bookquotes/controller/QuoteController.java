@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/quote")
@@ -23,9 +24,12 @@ public class QuoteController {
         }
     }
 
-    @GetMapping("/random")
-    public String getRandomQuote(){
-        return "Sales people are like actors";
+    @GetMapping("/random/{ISBN}")
+    public Quote getRandomQuote(@PathVariable String ISBN){
+        List<Quote> quotes = quoteRepository.findQuoteByISBN(ISBN);
+        Random rand = new Random();
+        Quote randomQuote = quotes.get(rand.nextInt(quotes.size()));
+        return randomQuote;
     }
 
     @GetMapping("/book/{ISBN}")
