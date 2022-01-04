@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  db:
+    image: mongo
+    hostname: mongo
+    container_name: mongo_quotes
+    ports:
+      - 27017:27017
