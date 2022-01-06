@@ -16,6 +16,7 @@ import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -62,10 +63,10 @@ class QuoteControllerIntegrationTests {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(jsonPath("$[0].isbn", is("6874684345634")))
-                .andExpect(jsonPath("$[0].quote", is("Competition is for losers")))
-                .andExpect(jsonPath("$[1].isbn", is("6874684345634")))
-                .andExpect(jsonPath("$[1].quote", is("Sales people are like actors")));
+                .andExpect(jsonPath("$.isbn", is("6874684345634")))
+                .andExpect(jsonPath("$.quote", is("Competition is for losers")))
+                .andExpect(jsonPath("$.isbn", is("6874684345634")))
+                .andExpect(jsonPath("$.quote", is("Sales people are like actors")));
     }
 
     @Test
@@ -84,9 +85,10 @@ class QuoteControllerIntegrationTests {
 //    @Test
 //    public void givenQuote_whenPutQuote_thenReturnJsonReview() throws Exception {
 //
+//        Quote notupdatedQuote = new Quote("quote", "ISBN1");
+//        given(quoteRepository.findQuoteById("1")).willReturn(notupdatedQuote);
 //        Quote updatedQuote = new Quote("nieuwequote", "ISBN1");
-//
-//        mockMvc.perform(put("/quote/{id}",1)
+//        mockMvc.perform(put("/quote/{id}")
 //                .content(mapper.writeValueAsString(updatedQuote))
 //                .contentType(MediaType.APPLICATION_JSON))
 //                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
